@@ -1,0 +1,53 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'application'
+
+
+buildscript {
+    ext {
+        springBootVersion = '2.0.5.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
+    }
+}
+
+test {
+    ignoreFailures = true
+}
+
+
+mainClassName = 'pucmm.practica14.Practica14'
+group = 'pucmm'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url "https://maven.vaadin.com/vaadin-addons" }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'com.vaadin:vaadin-bom:10.0.7'
+    }
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile("com.vaadin:vaadin-spring-boot-starter")
+
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.4.0')
+    compile('org.springframework.boot:spring-boot-starter-mail:2.0.1.RELEASE')
+    runtime('com.h2database:h2')
+
+
+}

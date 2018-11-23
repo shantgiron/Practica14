@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:vaadin-form-layout-flow:1.0.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-form-layout-flow/1.0.3/40d1d679d8ce58de3e2aad3aa31cf76060c16c03/vaadin-form-layout-flow-1.0.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-form-layout-flow/1.0.3/2062ab85d3549716c31cfe74d4309f50597b19b3/vaadin-form-layout-flow-1.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

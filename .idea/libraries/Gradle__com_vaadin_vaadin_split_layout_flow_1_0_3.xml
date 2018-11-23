@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:vaadin-split-layout-flow:1.0.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-split-layout-flow/1.0.3/a4c72f2a12f7544635ec9d490a2656ca47b0aaca/vaadin-split-layout-flow-1.0.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-split-layout-flow/1.0.3/963768c99dbeeb539e324321ad530fcc12731846/vaadin-split-layout-flow-1.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vaadin:vaadin-button-flow:1.0.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-button-flow/1.0.4/ba827d017a7b3e36eb51e056952a66f7b262ab97/vaadin-button-flow-1.0.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vaadin/vaadin-button-flow/1.0.4/376899b15f36c9e8104e6ba63af35ff45b58b9f3/vaadin-button-flow-1.0.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
