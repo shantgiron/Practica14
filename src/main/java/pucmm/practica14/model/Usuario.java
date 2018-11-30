@@ -116,6 +116,9 @@ public class Usuario implements Serializable {
         this.deleted = deleted;
     }
 
+    public String getNombreRol(){
+        return getRol().getNombreRol();
+    }
 
 
 

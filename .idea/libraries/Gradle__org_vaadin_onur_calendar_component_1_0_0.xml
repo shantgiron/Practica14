@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.vaadin.onur:calendar-component:1.0.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vaadin.onur/calendar-component/1.0.0/64e6df1b1cc6d08a33f75d5cfa6f125ba80659a3/calendar-component-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.vaadin.onur/calendar-component/1.0.0/f6d88d9d08d643cc862ce9e11f967809cf26d367/calendar-component-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

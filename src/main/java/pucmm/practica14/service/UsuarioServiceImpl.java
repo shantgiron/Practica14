@@ -37,6 +37,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 
 
+    public List<Usuario> usuariosPaginados(int offset, int limit){
+        return usuarioRepository.usuariosPaginados(offset, limit);
+    }
+
+    public Integer cantidadUsuarios(){
+        return usuarioRepository.cantidadUsuarios();
+    }
+
     public void actualizarUsuario(Usuario usuario){
         crearUsuario(usuario);
     }

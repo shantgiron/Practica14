@@ -15,5 +15,8 @@ public interface UsuarioService {
     Usuario findByUsername(String username);
     Usuario findByEmail(String email);
     boolean usuarioExiste(Usuario usuario);
+    List<Usuario> usuariosPaginados(int offset, int limit);
+    Integer cantidadUsuarios();
+
 
 }
