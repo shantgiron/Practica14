@@ -14,11 +14,14 @@ import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.data.provider.DataProvider;
 import com.vaadin.flow.data.renderer.NativeButtonRenderer;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.spring.annotation.UIScope;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pucmm.practica14.model.Evento;
+import pucmm.practica14.model.Usuario;
 import pucmm.practica14.service.EventoServiceImpl;
+import pucmm.practica14.service.UsuarioServiceImpl;
 
 
 @Route("eventos")
@@ -27,6 +30,7 @@ import pucmm.practica14.service.EventoServiceImpl;
 public class EventoCrud extends VerticalLayout {
 
     EventoServiceImpl eventoService;
+    UsuarioServiceImpl usuarioService;
 
     Grid<Evento> tablaEventos;
     TextField tfTitulo;
@@ -46,9 +50,11 @@ public class EventoCrud extends VerticalLayout {
      * @param eventoService
      */
 
-    public EventoCrud(@Autowired EventoServiceImpl eventoService){
+    public EventoCrud(@Autowired EventoServiceImpl eventoService, @Autowired UsuarioServiceImpl usuarioService){
 
         this.eventoService = eventoService;
+        this.usuarioService = usuarioService;
+        crearRutas();
 
         //Instanciando el dato provider.
         dataProvider = DataProvider.fromCallbacks(
@@ -62,12 +68,12 @@ public class EventoCrud extends VerticalLayout {
                     int limit = query.getLimit();
                     System.out.println("El limit: "+limit);
                     //Enviando el flujo
-                    //  return usuarioService.usuariosPaginados(offset, limit).stream();
-                    return eventoService.buscarTodosEventos().stream();
+                    return eventoService.eventosPaginados(offset, limit).stream();
+                    //return eventoService.buscarTodosEventos().stream();
                 },
                 query -> {
                     //Indicando la cantidad maxima de elementos.
-                    return Math.toIntExact(eventoService.buscarTodosEventos().size());
+                    return Math.toIntExact(eventoService.eventosPaginados(0, 5).size());
                 }
         );
 
@@ -111,6 +117,10 @@ public class EventoCrud extends VerticalLayout {
                 Evento tempEvento= new Evento();
                 binder.writeBean(tempEvento);
                 eventoService.crearEvento(tempEvento);
+                for (Usuario usuario : usuarioService.buscarTodosUsuarios()){
+
+                    eventoService.enviarCorreo(usuario.getEmail(), tempEvento.getTitulo(), tempEvento.getDescripcion());
+                }
                 //refrescando el data set.
                 dataProvider.refreshItem(tempEvento);
                 dataProvider.refreshAll();
@@ -163,5 +173,16 @@ public class EventoCrud extends VerticalLayout {
         setSizeFull();
         //refrescando la tabla.
         dataProvider.refreshAll();
+    }
+
+    private void crearRutas(){
+        HorizontalLayout caja = new HorizontalLayout();
+        //con RouterLink el renderizado no recarga la pagina.
+        caja.add(new RouterLink("Calendario", Calendario.class));
+        caja.add(new RouterLink("Eventos", EventoCrud.class));
+        caja.add(new RouterLink("Usuarios", UsuarioCrud.class));
+        caja.add(new RouterLink("Roles", RolCrud.class));
+
+        add(caja);
     }
 }

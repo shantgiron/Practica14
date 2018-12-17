@@ -13,6 +13,7 @@ import com.vaadin.flow.data.binder.ValidationException;
 import com.vaadin.flow.data.provider.DataProvider;
 import com.vaadin.flow.data.renderer.NativeButtonRenderer;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.spring.annotation.UIScope;
 import javafx.scene.control.PasswordField;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,9 @@ public class UsuarioCrud extends VerticalLayout {
 
         this.usuarioService = usuarioService;
         this.rolService = rolService;
+
+        crearRutas();
+
 
         //Instanciando el dato provider.
         dataProvider = DataProvider.fromCallbacks(
@@ -181,5 +185,15 @@ public class UsuarioCrud extends VerticalLayout {
         setSizeFull();
         //refrescando la tabla.
         dataProvider.refreshAll();
+    }
+    private void crearRutas(){
+        HorizontalLayout caja = new HorizontalLayout();
+        //con RouterLink el renderizado no recarga la pagina.
+        caja.add(new RouterLink("Calendario", Calendario.class));
+        caja.add(new RouterLink("Eventos", EventoCrud.class));
+        caja.add(new RouterLink("Usuarios", UsuarioCrud.class));
+        caja.add(new RouterLink("Roles", RolCrud.class));
+
+        add(caja);
     }
 }
